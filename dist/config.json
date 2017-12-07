@@ -1,0 +1,8 @@
+{
+	"port": 8080,
+	"bodyLimit": "100kb",
+	"corsHeaders": ["Link"],
+	"dbUrl": "mongodb:\/\/localhost\/test",
+	"dbUrlProd": "mongodb://cabot:cabot1234@ds129936.mlab.com:29936/cabot-employees",
+	"csvPath": "src/employee-list.csv"
+}
