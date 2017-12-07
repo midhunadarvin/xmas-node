@@ -48,7 +48,7 @@ exports.default = function (req, res) {
 				if (user.email != 'midhun.darvin@cabotsolutions.com') {
 					callback();
 				} else {
-					var message = 'Hi ' + user.firstName + ' ' + user.lastName + ',\r\n Click on this link to view your christmas friend \r\n http:\/\/localhost:3000\/?id=' + user.index;
+					var message = 'Hi ' + user.firstName + ' ' + user.lastName + ',<br/> Click on this link to view your christmas friend, (best viewed on a mobile device) <br/> https:\/\/xmas-cabot.herokuapp.com\/?id=' + user.index;
 					var mailOptions = {
 						to: 'midhun.darvin@cabotsolutions.com', // list of receivers
 						subject: 'Christmas Friend ✔', // Subject line
