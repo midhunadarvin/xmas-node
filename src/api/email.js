@@ -26,12 +26,12 @@ export default (req, res) => {
 			
 			async.eachSeries(users, (user, callback) => {
 				// setup email data with unicode symbols
-				if(user.email != 'midhun.darvin@cabotsolutions.com'){
+				if (!((user.email == 'midhun.darvin@cabotsolutions.com') || (user.email == 'akhila.antony@cabotsolutions.com'))) {
 					callback();
 				}else {
-					let message = 'Hi ' + user.firstName + ' ' + user.lastName + ',<br/> Click on this link to view your christmas friend, (best viewed on a mobile device) <br/> https:\/\/xmas-cabot.herokuapp.com\/?id=' + user.index;
+					let message = 'Hi ' + user.firstName + ' ' + user.lastName + ',<br/><br/> Kindly login to ZOHO and Click on this link to view your christmas friend, (best viewed on a mobile device) <br/><br/> https://xmas-cabot.herokuapp.com?id=' + user.index;
 					let mailOptions = {
-						to: 'midhun.darvin@cabotsolutions.com', // list of receivers
+						to: user.email, // list of receivers
 						subject: 'Christmas Friend ✔', // Subject line
 						text: message, // plain text body
 						html: message // html body
@@ -47,7 +47,7 @@ export default (req, res) => {
 				}
 			}, (error) => {
 				console.log('Mails Sent');
-				res.json(users);
+				res.json({'message': 'Mails Sent'});
 			});
 		});
 	});
